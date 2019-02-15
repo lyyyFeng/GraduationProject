@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/Icon">
+        <file>Resources/icon/setting.svg</file>
+        <file>Resources/icon/close.svg</file>
+        <file>Resources/icon/minize.svg</file>
+        <file>Resources/icon/loginBG.gif</file>
+        <file>Resources/icon/account.svg</file>
+        <file>Resources/icon/account_focus.svg</file>
+        <file>Resources/icon/passwd.svg</file>
+        <file>Resources/icon/passwd_focus.svg</file>
+        <file>Resources/icon/keyboard.svg</file>
+        <file>Resources/icon/pullDown.svg</file>
+        <file>Resources/icon/maximize.svg</file>
+        <file>Resources/icon/maxback.svg</file>
+    </qresource>
+    <qresource prefix="/Qss">
+        <file>Resources/qss/loginWindow.qss</file>
+    </qresource>
+</RCC>

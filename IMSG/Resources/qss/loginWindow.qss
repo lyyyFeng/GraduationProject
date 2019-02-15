@@ -1,0 +1,79 @@
+
+*{font-family:Microsoft YaHei;}
+
+QPushButton#ButtonClo
+{
+	background-color:transparent;
+	border:none;
+}
+
+QPushButton#ButtonClo:hover
+{
+   background-color: rgb(255, 0, 0);
+   border:none;
+}
+
+QPushButton#ButtonClo:pressed
+{
+   background-color: rgb(205, 38, 38);
+   border:none;
+}
+
+
+
+QPushButton#ButtonSet
+{
+	background-color:transparent;
+	border:none;
+}
+
+QPushButton#ButtonSet:hover
+{
+	background: rgba(0,0,0,0.1);
+	border:none;
+}
+
+QPushButton#ButtonSet:pressed
+{
+   background: rgba(0,0,0,0.2);
+   border:none;
+}
+
+
+QPushButton#ButtonMin
+{
+	background-color:transparent;
+	border:none;
+}
+
+QPushButton#ButtonMin:hover
+{
+	background: rgba(0,0,0,0.1);
+	border:none;
+}
+
+QPushButton#ButtonMin:pressed
+{
+   background: rgba(0,0,0,0.2);
+   border:none;
+}
+
+QLabel
+{
+	background-color: rgba(255, 255, 224, 0);
+}
+QLabel#labelFace
+{
+	background-color: rgba(255, 255, 224, 0);
+}
+
+QCheckBox{
+    font:10px;
+	font-family:"Microsoft YaHei";  
+	spacing: 5px;
+}
+
+QPushButton#registerButton:hover
+{
+	color: rgb(255, 255, 255);
+}
