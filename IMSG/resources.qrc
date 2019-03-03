@@ -12,6 +12,9 @@
         <file>Resources/icon/pullDown.svg</file>
         <file>Resources/icon/maximize.svg</file>
         <file>Resources/icon/maxback.svg</file>
+        <file>Resources/icon/emotion.png</file>
+        <file>Resources/head.jpg</file>
+        <file>Resources/icon/loading.gif</file>
     </qresource>
     <qresource prefix="/Qss">
         <file>Resources/qss/loginWindow.qss</file>

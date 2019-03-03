@@ -31,7 +31,8 @@ SOURCES += \
     titlebar.cpp \
     mylineedit.cpp \
     talkwindow.cpp \
-    stackdlg.cpp
+    stackdlg.cpp \
+    message.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     titlebar.h \
     mylineedit.h \
     talkwindow.h \
-    stackdlg.h
+    stackdlg.h \
+    message.h
 
 FORMS += \
         mainwindow.ui \

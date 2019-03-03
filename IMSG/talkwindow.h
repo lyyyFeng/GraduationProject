@@ -2,20 +2,25 @@
 #define TALKWINDOW_H
 
 #include <QDialog>
-#include <QScrollArea>
+#include <QListWidgetItem>
 #include <QTextEdit>
 #include <QSplitter>
 #include <QFrame>
 #include "titlebar.h"
+#include "message.h"
 
 #define BUTTON_HEIGHT 35
 #define BUTTON_WIDTH 33
 #define TITLEBAR_HEIGHT 40
 
-enum StretchRectState
-{
-    NO_SELECT = 0, TOP_BORDER, BOTTOM_BORDER, LEFT_BORDER, RIGHT_BORDER,
-    LEFT_TOP_RECT, LEFT_BOTTOM_RECT, RIGHT_TOP_RECT, RIGHT_BOTTOM_RECT,
+//enum StretchRectState
+//{
+//    NO_SELECT = 0, TOP_BORDER, BOTTOM_BORDER, LEFT_BORDER, RIGHT_BORDER,
+//    LEFT_TOP_RECT, LEFT_BOTTOM_RECT, RIGHT_TOP_RECT, RIGHT_BOTTOM_RECT,
+//};
+
+enum Direction {
+    UP, DOWN, LEFT, RIGHT, LEFTTOP, LEFTBOTTOM, RIGHTBOTTOM, RIGHTTOP, NONE
 };
 
 namespace Ui {
@@ -30,27 +35,17 @@ public:
     explicit TalkWindow(QWidget *parent = nullptr);
     ~TalkWindow();
 
+    void dealMessage(Message *message, QListWidgetItem *item, QString text, QString time, Message::User_Type user_type);
+    void dealMessageTime(QString curMsgTime);
+
 private:
     Ui::TalkWindow *ui;
 
-    //四条边
-    QRect m_topBorderRect;
-    QRect m_bottomBorderRect;
-    QRect m_leftBorderRect;
-    QRect m_rightBorderRect;
-    //四个角
-    QRect m_leftTopRect;
-    QRect m_leftBottomRect;
-    QRect m_rightTopRect;
-    QRect m_rightBottomRect;
-
-    bool   m_bMousePressed;    // 鼠标是否按下
-    int    m_nMouseStyle;     // 鼠标样式
-
-    QPoint m_moveStartPoint;
-    QPoint m_endPoint;
-    QRect windowRect;
-    StretchRectState stretchState;
+    const int Padding = 2;
+    bool isLeftPressDown;  // 判断左键是否按下
+    QPoint dragPosition;   // 窗口移动拖动时需要记住的点
+    // 窗口大小改变时，记录改变方向
+    Direction dir;
 
     /*视频，语音按钮栏*/
     QWidget *toolWidget;
@@ -58,9 +53,7 @@ private:
     QPushButton *call;
 
     /*消息界面*/
-    QFrame *content;
-    //表情、文件、截图按钮
-    QWidget *contentTool;
+    QListWidget *content;
     QWidget *functionWidget;
     QPushButton *emotion;
     QPushButton *chooseFile;
@@ -70,12 +63,7 @@ private:
 
     QSplitter *pSplitter;
 
-    void calculateCurrentStretchRect();
-    int setCursorStyle(const QPoint& curPoint);    // 当前位置设置鼠标样式
-    void updateWindowStretchRect();
-    StretchRectState getCurrentStretchState(QPoint curPoint);
-    void updateWindowSize();
-    void setSupportStretch(bool isSupportStretch);
+    void judgeRegionSetCursor(const QPoint&);   //判断位置
 
     void setToolWidget();   //设置视频语音按钮栏
     void setContentWidget();
@@ -101,6 +89,8 @@ protected:
     void mousePressEvent(QMouseEvent *event);
 
     TitleBar *titlebar;
+private slots:
+    void on_sendBtn_clicked();
 };
 
 #endif // TALKWINDOW_H
